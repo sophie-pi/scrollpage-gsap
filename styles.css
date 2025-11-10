@@ -5,8 +5,46 @@ body{
 .hero h1{
     color: white;
     padding: 20%;
+    padding: 10%;
+    font-family: "baroque-text-jf", sans-serif;
+    font-size: 5em;
+    font-weight: lighter;
+}
+
+
+nav{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: transparent; /* change to a color if you want a visible bar */
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-end; /* aligns items to the right */
+    gap: 1rem;
+    align-items: center;
 }
 
 nav ul li{
+    margin: 0;
+}
+
+nav ul li a{
     color: white;
+    text-decoration: none;
+    padding: 0.35rem 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus{
+    background: rgba(255,255,255,0.08);
+    color: #fff;
 }
