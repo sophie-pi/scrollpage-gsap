@@ -32,12 +32,12 @@ function stopPulse() {
 button.addEventListener('click', () => {
   if (music.paused) {
     music.play();
-    button.textContent = 'Pause music';
+    button.textContent = '❚❚';
     button.classList.add('playing');
     startPulse();
   } else {
     music.pause();
-    button.textContent = 'Play music';
+    button.textContent = '▶';
     button.classList.remove('playing');
     stopPulse();
   }
