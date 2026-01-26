@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alice in Borderland</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <!-- Fonts & Styles -->
   <link rel="stylesheet" href="https://use.typekit.net/ybu7gsn.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -37,33 +40,32 @@
     <p class="subtitle" id="subtitle">Survive the Games. Find the Truth.</p>
   </div>
 
-  <section id="intro">
-    <h2 class="section-title intro-title">Welcome to the Borderland</h2>
-    <div class="intro-content">
-      <p>
-        In the blink of an eye, Tokyo becomes a
+
+<section id="games">
+
+    <div class="game-row">
+      <div class="game-card game-1">
+        <span class="game-suit">♠</span>
+        <h3>Welcome to the Games</h3>
+        <p>
+          In the blink of an eye, Tokyo becomes a
         <span class="red-highlight">desolate wasteland</span>. Arisu and his
         friends find themselves trapped in a parallel world where survival
         depends on winning twisted games.
-      </p>
-      <p>
         Each game is a deadly puzzle marked by
         <span class="red-highlight">playing cards</span>, where the suit
         determines the type of challenge and the number indicates its
         difficulty.
-      </p>
-      <p>
         The rules are simple: play the game, clear it, and earn
         <span class="red-highlight">visa extensions</span>. Fail, and face
         execution by the mysterious lasers from the sky.
-      </p>
-      <p>
         But who created this world? What lies beyond the games? And most
         importantly,
         <span class="red-highlight"
           >how do you escape the Borderland?</span
         >
-      </p>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -145,7 +147,15 @@
     </div>
   </section>
 
-  <section id="games">
+
+  <div class="floating-card" id="float1">♠</div>
+  <div class="floating-card" id="float2">♥</div>
+  <div class="floating-card" id="float3">♦</div>
+  <div class="floating-card" id="float4">♣</div>
+
+  <!-- kein Musikbutton / Audio mehr -->
+
+  
     <h2 class="section-title games-title">The Deadly Games</h2>
     <div class="games-intro">
       Every card suit represents a different challenge:
@@ -156,104 +166,36 @@
       difficulty. Face cards are the final trials.
     </div>
 
-    <div class="game-row">
-      <div class="game-card game-1">
-        <span class="game-suit">♠</span>
-        <h3>Five of Spades</h3>
-        <p>
-          Hide and Seek - A deadly game of tag set in a massive apartment
-          complex. Players must evade a superhuman tagger whose touch means
-          instant death. The only escape is finding the safe zone before time
-          runs out, but the tagger learns and adapts with each encounter.
-        </p>
-        <span class="difficulty">5♠</span>
-        <span class="game-type">Physical</span>
-      </div>
+  <div id="canvas-container">
+      <div class="grid-overlay"></div>
+      <div class="laser" style="left: 20%; animation: laserMove 4s ease-in-out infinite;"></div>
+      <div class="laser" style="left: 50%; animation: laserMove 5s ease-in-out infinite 1s;"></div>
+      <div class="laser" style="left: 80%; animation: laserMove 6s ease-in-out infinite 2s;"></div>
+      <div class="laser-h" style="top: 30%; animation: laserMoveH 5s ease-in-out infinite;"></div>
+      <div class="laser-h" style="top: 70%; animation: laserMoveH 6s ease-in-out infinite 1.5s;"></div>
+      
+      <h1 class="title">ALICE IN BORDERLAND CARDS</h1>
+      <p class="instructions">BEWEGE MAUS • KLICKE AUF KARTEN</p>
+      
+      <div class="card-info" id="cardInfo">
+          <h2 id="cardTitle">Wähle eine Karte</h2>
+          <div class="difficulty" id="cardDifficulty">Schwierigkeit: ?</div>
+          <p id="cardDescription">Bewege die Maus über die Karten um mehr zu erfahren.</p>
+        </div>
     </div>
+    
+    <style>
+        @keyframes laserMove {
+            0%, 100% { transform: translateX(-50px); opacity: 0.2; }
+            50% { transform: translateX(50px); opacity: 0.6; }
+        }
+        
+        @keyframes laserMoveH {
+            0%, 100% { transform: translateY(-50px); opacity: 0.2; }
+            50% { transform: translateY(50px); opacity: 0.6; }
+        }
+        </style>
 
-    <div class="game-row">
-      <div class="game-card game-2">
-        <span class="game-suit">♥</span>
-        <h3>Seven of Hearts</h3>
-        <p>
-          Witch Hunt - A psychological nightmare where players must identify
-          the witch among them. Trust crumbles as everyone becomes a suspect.
-          Make the wrong choice and everyone dies. Choose correctly and watch
-          an innocent person burn. There are no winners in games of hearts.
-        </p>
-        <span class="difficulty">7♥</span>
-        <span class="game-type">Psychological</span>
-      </div>
-    </div>
-
-    <div class="game-row">
-      <div class="game-card game-3">
-        <span class="game-suit">♦</span>
-        <h3>King of Diamonds</h3>
-        <p>
-          Beauty Contest - The ultimate test of logic and game theory. Players
-          must predict the average choice of others in an intricate
-          mathematical puzzle. Only those who can think several moves ahead
-          and understand human nature will survive this battle of wits.
-        </p>
-        <span class="difficulty">K♦</span>
-        <span class="game-type">Intelligence</span>
-      </div>
-    </div>
-
-    <div class="game-row">
-      <div class="game-card game-4">
-        <span class="game-suit">♣</span>
-        <h3>King of Clubs</h3>
-        <p>
-          Osmosis - A game of perfect teamwork and sacrifice. Players must work
-          together to solve increasingly impossible challenges, but the game is
-          designed to turn allies into enemies. When cooperation means certain
-          death for some, who will make the ultimate sacrifice?
-        </p>
-        <span class="difficulty">K♣</span>
-        <span class="game-type">Teamwork</span>
-      </div>
-    </div>
-
-    <div class="game-row">
-      <div class="game-card game-5">
-        <span class="game-suit">♠</span>
-        <h3>King of Spades</h3>
-        <p>
-          The King of Spades is not a venue but a person - a relentless
-          mercenary who hunts players across the entire Borderland. Armed with
-          military-grade weapons and tactical genius, he never stops, never
-          sleeps. Run, hide, or fight - nothing can stop the King of Spades.
-        </p>
-        <span class="difficulty">K♠</span>
-        <span class="game-type">Survival</span>
-      </div>
-    </div>
-
-    <div class="game-row">
-      <div class="game-card game-6">
-        <span class="game-suit">♥</span>
-        <h3>Queen of Hearts</h3>
-        <p>
-          Croquet - The final game. Mira's psychological labyrinth where
-          reality itself becomes the puzzle. Players must confront their
-          deepest truths and decide what reality truly means. In a world built
-          on illusions, the hardest game is accepting the truth about yourself.
-        </p>
-        <span class="difficulty">Q♥</span>
-        <span class="game-type">Mind Break</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="floating-card" id="float1">♠</div>
-  <div class="floating-card" id="float2">♥</div>
-  <div class="floating-card" id="float3">♦</div>
-  <div class="floating-card" id="float4">♣</div>
-
-  <!-- kein Musikbutton / Audio mehr -->
-
-  <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
